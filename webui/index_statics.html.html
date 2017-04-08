@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Bootstrap 3, from LayoutIt!</title>
+    
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style type="text/css" media="screen">
+      .setWidth {
+          max-width: 40px;
+      }
+      /* .concat div{ */
+      /*     overflow: hidden; */
+      /*     -me-text-overflow: ellipsis; */
+      /*     -o-text-overflow: ellipsis; */
+      /*     text-overflow: ellipsis; */
+      /*     white-space: nowrap; */
+      /*     width: inherit; */
+      /* } */
+      /* table { table-layout: fixed; } */
+      table th, table td { overflow: hidden; }
+    </style>
+    
+  </head>
+  <body>
+    
+    <div class="container">
+      <br><br><br><br><br><br><br><br><br>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="网址..." id="url">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="addtask">下载</button>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" align="center">
+          <div class="btn-group" align="center">
+            <button type="button" class="btn btn-default" id="mytask">我的任务</button>
+            <button type="button" class="btn btn-default" id="alltask">全部任务</button>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    
+    <!-- table starts -->
+    <div class="container">
+      <div class="row">
+        <br>
+        <div class="col-md-3"></div>
+        <div class="col-md-6" align="center">
+          <table class="table  table-hover table-condensed table-striped table-boarded" id="ordertbl">
+            
+            <thead>
+              <tr class="primary">
+                <th >#</th>
+                <th>添加时间</th>
+                <th>名称</th>
+                <th>地址</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody ms-controller="maintable">
+              <!-- controller must be same with the idl -->
+              <tr class="default" ms-repeat="data">
+                <td class="setWidth">{{el.id}}</td>
+                <td class="setWidth">{{el.time}}</td>
+                <td class="setWidth">{{el.name}} </td>
+                <td class="setWidth">{{el.url}}</td>
+                <td class="setWidth">{{el.status}}</td>
+                <!-- <td style="visibility:hidden" class="divOne">{{!el.id}}</td> -->
+                <td>
+                  <button type="button" class="btn btn-default btn-sm" ms-click="download(el.id)">下载</button>
+                  <button type="button" class="btn btn-default btn-sm" ms-click="del_task(el.id)">删除</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    <!-- table ends -->
+    
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/avalon.js"></script>
+
+
+<script src="js/table.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

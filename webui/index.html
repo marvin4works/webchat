@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>在线聊天室</title>
+    
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style type="text/css" media="screen">
+      .fixed-panel {
+          min-height: 10;
+          max-height: 10;
+          overflow-y: scroll;
+          height: 480px;
+      }
+    </style>
+    
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        
+        
+        <div class="col-md-8">
+          
+          
+          <div class="panel panel-default" ms-controller="maintable">
+            <div class="panel-heading">
+              <h3 class="panel-title">当前用户:{{!user_id}}</h3>
+            </div>
+            <div class="panel-body fixed-panel" >
+              
+              <!-- <span class="label label-default">Default</span> -->
+              <!-- <span class="label label-primary">Primary</span> -->
+              <!-- <span class="label label-success">Success</span> -->
+              <!-- <span class="label label-info">Info</span> -->
+              <!-- <span class="label label-warning">Warning</span> -->
+              <!-- <span class="label label-danger">Danger</span> -->
+              
+              <span ms-repeat="data">
+                <div>
+                  <h6> 
+                    <span class="label label-success" ms-if="el.self"> {{!el.name}} </span> 
+                    <span class="label label-primary" ms-if="!el.self">{{!el.name}} </span>
+                    &nbsp;
+                    {{!el.time}}
+                    
+                  </h6>
+                  <h5>  {{!el.msg}}</h5>
+                   <!-- <div class="test label" ms-class-label-success="toggle" ms-click="click">点我</div> -->
+                   <!-- <div class="test label" ms-class="label-success:!toggle" ms-click="click">点a我</div> -->
+
+                </div> 
+              </span>
+
+              
+            </div>
+            <div class="panel-footer">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="聊点什么..." id="new_msg">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" id="sendmsg">发送</button>
+                </span>
+              </div>
+              
+              <!-- <textarea class="form-control" rows="3" placeholder="What's up?" required></textarea> -->
+              
+            </div>
+          </div>
+          
+          
+          
+          
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+    
+    <script>
+      WS_KEY="{{ws_key}}";
+      USER_ID="{{user_id}}"; 
+      console.log(WS_KEY);
+      
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/avalon.js"></script>
+    
+    
+    <script src="js/table.js"></script>
+    <script src="js/scripts.js"></script>
+    
+  </body>
+</html>
